@@ -1,12 +1,14 @@
 {
   "name": "Project-Tech",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "## Install dependencies",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "nodemon": "nodemon index.js",
-    "camelcase": "camelcase index.js"
+    "nodemon": "nodemon server.js",
+    "camelcase": "camelcase server.js",
+    "express": "express server.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
