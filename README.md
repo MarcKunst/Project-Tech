@@ -13,3 +13,11 @@ With camelCase you can convert any string to camelCase.
 
 Run `npm run dev` in de terminal.
 Now every time you save your document. Nodemon will automatically update the console.log for you in the terminal.
+
+## Install Express
+
+This project uses the Express framework for Node.js. To install Express, run `npm install express --save` in the terminal within your proejct directory.
+
+## EJS templating
+
+This project uses EJS for writing the dynamic pages and partials. To install EJS, run `npm install ejs` in the terminal. For more information on writing EJS follow this link: (https://ejs.co/#install).
