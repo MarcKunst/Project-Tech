@@ -74,3 +74,10 @@ main>form>h2{
     text-align: center;
     margin: 0;
 }
+
+main>form>button{
+    width: 40vw;
+    height: 4em;
+    border-radius: 100px;
+    border: 2px E43F3B solid;
+}
