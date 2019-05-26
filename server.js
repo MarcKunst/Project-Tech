@@ -12,9 +12,7 @@ app.get('/proposal_1.html', function(req, res) {
   res.sendFile(proposal_1.html)
 })
 
-app.get("/image", function(request, response) {
-  response.render("image");
- });
+
 // (req, res) => res.sendFile(proposal_1.html))
 // app.get('/images/logo_cinedate.png', (req, res) => res.sendFile(images/logo_cinedate.png))
 // 404
