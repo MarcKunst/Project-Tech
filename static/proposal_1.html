@@ -25,11 +25,18 @@
             <h1>Plaats een<br>cinedate</h1>
 
             <form>
-                    <img src="../static/images/icons/location-rood.svg">
-                <h2>Waar wil je de film zien?</h2>
                 <!-- debouncer voor de autocomplete van de searchbar of een throtteling-->
                 <!-- button op disabled voordat er iets in ingevuld -->
-                <button class="ready" type="button">
+                <img src="../static/images/icons/location-rood.svg">
+                <h2>Waar wil je de film zien?</h2>
+                <fieldset>
+                    <input type="radio" id="locationChoice1" name="proposal" value="noLocation">
+                    <label for="locationChoice1">Maakt mij niet uit</label>
+                    <br>
+                    <input type="radio" id="locationChoice2" name="proposal" value="location">
+                    <label for="locationChoice2">Ik wil een plek kiezen</label>
+                </fieldset>
+                <button class="ready" type="submit">
                     Bevestig
                 </button>
             </form>
