@@ -167,6 +167,10 @@ input[type="text"]:focus {
     border: 2px #f66 solid;
 }
 
+.hide{
+    display: none;
+}
+
 /*placeholder text*/
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #bdbdbd;

@@ -3,10 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Date plaatsen</title>
+        <title>Cinedate | Plaats date</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" type="image/png" href="../static/images/favicon_logo.png">
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap" rel="stylesheet"> 
     </head>
@@ -30,13 +31,13 @@
                 <img src="../static/images/icons/location-rood.svg">
                 <h2>Waar wil je de film zien?</h2>
                 <fieldset>
-                    <input type="radio" id="locationChoice1" name="location" value="noLocation">
-                    <label for="locationChoice1">Maakt mij niet uit</label>
+                    <input type="radio" id="no_location" name="location" value="noLocation" checked>
+                    <label for="no_location">Maakt mij niet uit</label>
                     <br>
-                    <input type="radio" id="locationChoice2" name="location" value="addLocation">
-                    <label for="locationChoice2">Ik wil een plek kiezen</label>
+                    <input type="radio" id="add_location" name="location" value="addLocation">
+                    <label for="add_location">Ik wil een plek kiezen</label>
                     
-                    <input type="text" id="locationInputField" name="nameLocation" placeholder="Stad, provincie..">
+                    <input type="text" id="location_input_field" class="hide" name="nameLocation" placeholder="Stad, provincie..">
                 </fieldset>
                 <button class="ready" type="submit">
                     Bevestig
@@ -44,6 +45,6 @@
             </form>
         </main>
         
-        <script src="" async defer></script>
+        <script src="../static/js/index.js" async defer></script>
     </body>
 </html>
