@@ -30,11 +30,13 @@
                 <img src="../static/images/icons/location-rood.svg">
                 <h2>Waar wil je de film zien?</h2>
                 <fieldset>
-                    <input type="radio" id="locationChoice1" name="proposal" value="noLocation">
+                    <input type="radio" id="locationChoice1" name="location" value="noLocation">
                     <label for="locationChoice1">Maakt mij niet uit</label>
                     <br>
-                    <input type="radio" id="locationChoice2" name="proposal" value="location">
+                    <input type="radio" id="locationChoice2" name="location" value="addLocation">
                     <label for="locationChoice2">Ik wil een plek kiezen</label>
+                    
+                    <input type="text" id="locationInputField" name="nameLocation" placeholder="Stad, provincie..">
                 </fieldset>
                 <button class="ready" type="submit">
                     Bevestig
