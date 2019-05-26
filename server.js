@@ -2,20 +2,21 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+
 app.use(express.static('static'))
+// here you set that you're using `ejs` template engine, and the
+// default extension is `ejs`
+app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/proposal_1.html', function(req, res) {
+  res.sendFile(proposal_1.html)
+})
 
-app.get('/about', (req, res) => res.send('This is the about page'))
-
-app.get('/login', (req, res) => res.send('This is were you can log in'))
-
-app.get('/images/avocado.png', (req, res) => res.sendFile(images/avocado.png))
-
-app.get('/css/style.css', (req, res) => res.sendFile(css/style.css))
-
-app.get('/js/index.js', (req, res) => res.sendFile(js/index.js))
-
+app.get("/image", function(request, response) {
+  response.render("image");
+ });
+// (req, res) => res.sendFile(proposal_1.html))
+// app.get('/images/logo_cinedate.png', (req, res) => res.sendFile(images/logo_cinedate.png))
 // 404
 app.use(function (req, res, next) {
     res.status(404).send("404 Sorry can't find that!")
