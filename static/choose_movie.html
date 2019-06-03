@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Cinedate | Kies een film</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" type="image/png" href="/images/favicon_logo.png">
+        <meta name="theme-color" content="#E53E3A">
+        <meta name="msapplication-navbutton-color" content="#E53E3A">
+        <meta name="apple-mobile-web-app-status-bar-style" content="#E53E3A">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap" rel="stylesheet"> 
+    </head>
+    <body>
+        <header>
+            <a href="#">
+                <img src="/images/logo_cinedate.png">
+            </a>
+            <nav>
+                <a href="#"><img src="/images/icons/message.svg"></a>
+                <a href="#"><img src="/images/icons/profile.svg"></a>
+            </nav>
+        </header>
+
+        <main>
+            <h1>Plaats een<br>cinedate</h1>
+
+            <form>
+                <!-- debouncer voor de autocomplete van de searchbar of een throtteling-->
+                <!-- button op disabled voordat er iets in ingevuld -->
+                <img src="/images/icons/ticket-rood.svg">
+                <h2>Welke film wil je graag zien?</h2>
+                <fieldset>
+                    <input type="text" id="movie_input_field" name="nameMovie" placeholder="Film, docu..">
+                </fieldset>
+                <button id="submit_button" class="ready" type="submit">
+                    Bevestig
+                </button>
+            </form>
+        </main>
+        
+        <script src="/js/index.js" async defer></script>
+    </body>
+</html>
