@@ -40,9 +40,11 @@ app.use(function (req, res, next) {
     res.status(404).send("404 Sorry can't find that!")
   })
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, function(){
+  return console.log(`Poort ${port} is aan het runnen yo!`);
+})
 
 //form
-app.post('/profile', upload.none(), function (req, res, next) {
-  // req.body contains the text fields
-})
+app.post('/', function(req, res){
+  console.log('het werkt');
+});

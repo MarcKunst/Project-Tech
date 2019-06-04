@@ -29,14 +29,12 @@
             <h1>Plaats een<br>cinedate</h1>
 
             <form action="/" method="POST">
-                <!-- debouncer voor de autocomplete van de searchbar of een throtteling-->
-                <!-- button op disabled voordat er iets in ingevuld -->
                 <img src="/images/icons/ticket-rood.svg">
                 <h2>Welke film wil je graag zien?</h2>
                 <fieldset>
-                    <input type="text" id="movie_input_field" name="nameMovie" placeholder="Film, docu..">
+                    <input type="text" id="movie_input_field" name="nameMovie" placeholder="film, documentaire..">
                 </fieldset>
-                <button id="submit_button" class="ready" type="submit">
+                <button id="submit_button" class="ready" type="submit" value="Submit">
                     Bevestig
                 </button>
             </form>
