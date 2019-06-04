@@ -5,7 +5,9 @@ const multer = require('multer');
 const path = require('path');
 const expressValidator = require('express-validator');
 const mongoose = require('mongoose');
-let upload = multer()
+const User = require('./models/user');
+const Date = require('./models/date');
+
 
 
 const app = express()
@@ -48,30 +50,18 @@ app.use(expressValidator({
 }));
 
 //mongoose
-mongoose.connect('mongodb://localhost/daterequest', {useNewUrlParser: true});
-
-let db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  
-  let dateSchema = new mongoose.Schema({
-    name: {
-      first_name: String,
-      last_name: String
-    },
-    profilePicture: Buffer,
-    age: String,
-    gender: String,
-    movie_name: String,
-    created: Date
-  });
-
+mongoose.connect('mongodb://localhost/daterequest', function (err) {
+  if (err) throw err;
 
 });
 
 //routes
 app.get('/', function(req, res) {
   res.render('index')//route to index.ejs
+})
+
+app.get('/adddate', function(req, res) {
+  res.render('add')//route to date.ejs
 })
 
 app.get('/proposal_1.html', function(req, res) {
@@ -90,7 +80,7 @@ app.post('/', function(req, res){
   let errors = req.validationErrors();
 
   if(errors) {
-    res.render('index', {
+    res.render('add', {
       errors: errors
     });
     console.log('Error bij nieuwe date');
@@ -105,8 +95,8 @@ app.post('/', function(req, res){
 
 // 404
 app.use(function (req, res, next) {
-    res.status(404).send("404 Sorry can't find that!")
-  })
+    res.render('404')
+})
 
 app.listen(port, function(){
   console.log(`Poort ${port} is aan het runnen yo!`);

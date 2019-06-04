@@ -4,19 +4,8 @@
 
     <body>
         <% include ../partials/header %>
-        <% include ../partials/form-header %>
-        <% if (errors){ %>
-            <ul>
-                <% errors.forEach(function(error) { %>
-                    <li class="error-msg"> <%= error.msg %> </li>
-                <% }) %>
-            </ul>
-        <% } %>
-        <fieldset>
-            <!-- <label for="nameMovie">Welke film wil je graag zien?</label> -->
-            <input type="text" id="movie_input_field" name="nameMovie" placeholder="film, documentaire..">
-        </fieldset>
-        <% include ../partials/form-footer %>
+                
+
         <script src="/js/index.js" async defer></script>
     </body>
 </html>
