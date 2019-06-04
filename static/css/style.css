@@ -72,7 +72,7 @@ main>form>h2{
     color: #313131;
     letter-spacing: 0.1em;
     text-align: center;
-    margin: 0;
+    margin: 0 0 1.5em;
 }
 
 main>form>fieldset{
@@ -80,11 +80,12 @@ main>form>fieldset{
     font-family: 'Open Sans', Helvetica, sans-serif;
     font-size: 0.8em;
     font-weight: 400;
-    padding: 1.5em 1.5em 7em;
+    padding: 0em 1.5em 7em;
+    margin-bottom: 2em;
 }
 
 main>form>fieldset>label{
-    padding-left: 3.2em;
+    padding-left: 0.7em;
     line-height: 3em;
     letter-spacing: 0.1em;
 }
@@ -124,10 +125,10 @@ input[type="radio"] {
     border-radius: 10px;
     border: 1px solid #a8a8a8;
     cursor: pointer;
-    display: inline-block;
+    display: block;
     height: 19px;
-    position: absolute;
     margin-top: 0.9em;
+    margin-left: 1em;
     width: 19px;
     -webkit-appearance: none;
 }
@@ -152,7 +153,7 @@ input[type="text"] {
     width: 84%;
     border: 2px #bdbdbd solid;
     border-radius: 4px;
-    margin: 1em 0.5em;
+    margin: 0.2em 0.5em 1em;
     padding: 1em 1em;
     font-family: 'Open Sans', Helvetica, sans-serif;
     font-size: 0.8rem;
@@ -184,3 +185,17 @@ input[type="text"]:focus {
   ::-ms-input-placeholder { /* Microsoft Edge */
     color: #bdbdbd;
   }
+
+/*error*/
+form>ul {
+    padding-left: 1.8em;
+}
+
+.error-msg {
+    color: #E43F3B;
+    list-style: none;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+}

@@ -22,6 +22,12 @@ app.set('views', path.join(__dirname, 'view/pages'));
 //static path
 app.use(express.static(path.join(__dirname, 'static')))
 
+//global variables
+app.use(function(req, res, next) {
+  res.locals.errors = null;
+  next();
+});
+
 //express validator middleware
 app.use(expressValidator({
   errorFormatter: function(param, msg, value) {
@@ -53,16 +59,32 @@ app.get('/choose_movie.html', function(req, res) {
   res.sendFile(choose_movie.html)//route to html
 })
 
+//form
+app.post('/', function(req, res){
+
+  req.checkBody('nameMovie', 'Naam van film is verpicht!').notEmpty();
+  
+  let errors = req.validationErrors();
+
+  if(errors) {
+    res.render('index', {
+      errors: errors
+    });
+    console.log('Error bij nieuwe date');
+  } else {
+    let newDate = {
+      movie_name: req.body.nameMovie
+    }
+    console.log('nieuwe date is gelukt');
+  }
+});
+
+
 // 404
 app.use(function (req, res, next) {
     res.status(404).send("404 Sorry can't find that!")
   })
 
 app.listen(port, function(){
-  return console.log(`Poort ${port} is aan het runnen yo!`);
+  console.log(`Poort ${port} is aan het runnen yo!`);
 })
-
-//form
-app.post('/user', function(req, res){
-  console.log('Is gucci!');
-});
