@@ -3,6 +3,7 @@ const camelCase = require('camelcase');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const path = require('path');
+const expressValidator = require('express-validator');
 let upload = multer()
 
 
@@ -14,13 +15,30 @@ const port = 3000
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-//static path
-app.use(express.static(path.join(__dirname, 'static')))
-
 //devine templating engine and path
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'view/pages'));
 
+//static path
+app.use(express.static(path.join(__dirname, 'static')))
+
+//express validator middleware
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+    let namespace = param.split('.')
+    , root = namespace.shift()
+    , formParam = root;
+
+    while(namespace.lenght) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param : formParam,
+      msg : msg,
+      value : value
+    };
+  }
+}));
 
 //routes
 app.get('/', function(req, res) {
@@ -45,6 +63,6 @@ app.listen(port, function(){
 })
 
 //form
-app.post('/', function(req, res){
-  console.log('het werkt');
+app.post('/user', function(req, res){
+  console.log('Is gucci!');
 });
