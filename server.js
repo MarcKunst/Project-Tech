@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const path = require('path');
 const expressValidator = require('express-validator');
+const mongoose = require('mongoose');
 let upload = multer()
 
 
@@ -45,6 +46,28 @@ app.use(expressValidator({
     };
   }
 }));
+
+//mongoose
+mongoose.connect('mongodb://localhost/daterequest', {useNewUrlParser: true});
+
+let db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  
+  let dateSchema = new mongoose.Schema({
+    name: {
+      first_name: String,
+      last_name: String
+    },
+    profilePicture: Buffer,
+    age: String,
+    gender: String,
+    movie_name: String,
+    created: Date
+  });
+
+
+});
 
 //routes
 app.get('/', function(req, res) {
