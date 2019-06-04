@@ -3,6 +3,8 @@ body{
     margin: 0;
     background-color: #FEFEFE;
     color: #313131;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    letter-spacing: 0.1em;
 }
 
 /*header*/
@@ -47,6 +49,69 @@ main>h1{
     text-transform: uppercase;
 }
 
+/* matches */
+main>section.match>section.match-user{
+    width: 84vw;
+    background-color: #FEFEFE;
+    margin: 2em auto 0.2em;
+    border-radius: 6px;
+    box-shadow: 0px 1px 10px rgba(161, 161, 161, 0.37);
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+}
+
+main>section.match>section.match-user>img{
+    border-radius: 3em;
+    width: 5em;
+    margin: 1em;
+}
+
+main>section.match>section.match-user>div.personal-info>h3{
+    font-weight: 400;
+    font-size: 1rem;
+    margin: 1.5em 0 0.5em 0;
+}
+
+main>section.match>section.match-user>div.personal-info>p{
+    font-weight: 400;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+main>section.match>section.match-movie{
+    width: 84vw;
+    background: rgb(229,57,53);
+    background: -moz-linear-gradient(65deg, rgba(229,57,53,1) 0%, rgba(227,93,91,1) 100%);
+    background: -webkit-linear-gradient(65deg, rgba(229,57,53,1) 0%, rgba(227,93,91,1) 100%);
+    background: linear-gradient(65deg, rgba(229,57,53,1) 0%, rgba(227,93,91,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e53935",endColorstr="#e35d5b",GradientType=1);
+    margin: 0em auto 1em;
+    border-radius: 6px;
+    box-shadow: 0px 1px 10px rgba(161, 161, 161, 0.37);
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+}
+
+main>section.match>section.match-movie>.movie-info {
+    color: #FEFEFE;
+    margin: 1em;
+}
+
+main>section.match>section.match-movie>.movie-info>p {
+    font-weight: 300;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+main>section.match>section.match-movie>.movie-info>h3 {
+    font-weight: 300;
+    font-size: 1rem;
+    margin: 0.5em 0 0;
+}
+
+/*form*/
 main>form{
     width: 84vw;
     background-color: #FEFEFE;
