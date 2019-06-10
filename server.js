@@ -1,12 +1,15 @@
+// Require dependencies
 const express = require('express')
 const camelCase = require('camelcase');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const path = require('path');
 const expressValidator = require('express-validator');
+const mongo = require('mongodb');
 const mongoose = require('mongoose');
 const User = require('./models/user');
 const Date = require('./models/date');
+require('dotenv').config();
 
 
 
