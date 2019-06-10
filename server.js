@@ -16,11 +16,6 @@ require('dotenv').config();
 const app = express()
 const port = 3000
 
-
-//bodyparser middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-
 //devine templating engine and path
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'view/pages'));
@@ -33,6 +28,10 @@ app.use(function(req, res, next) {
   res.locals.errors = null;
   next();
 });
+
+//bodyparser middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
 //express validator middleware
 app.use(expressValidator({
