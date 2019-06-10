@@ -64,15 +64,15 @@ app.get('/', function(req, res) {
 })
 
 app.get('/adddate', function(req, res) {
-  res.render('add')//route to date.ejs
+  res.render('add')//route to adddate.ejs
 })
 
-app.get('/proposal_1.html', function(req, res) {
-  res.sendFile(proposal_1.html)//route to html
+app.get('/login', function(req, res) {
+  res.render('login')//route to login.ejs
 })
 
-app.get('/choose_movie.html', function(req, res) {
-  res.sendFile(choose_movie.html)//route to html
+app.get('/registreren', function(req, res) {
+  res.render('register')//route to register.ejs
 })
 
 //form

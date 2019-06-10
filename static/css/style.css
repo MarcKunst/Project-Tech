@@ -49,6 +49,30 @@ main>h1{
     text-transform: uppercase;
 }
 
+/* login */
+section.login-register-container{
+    margin: 5em 2em 0;
+    position: relative;
+}
+
+img.login-logo {
+    width: 60vw;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+section.login-register-container>form {
+    top: 4em;
+    padding-top: 1em;
+}
+
+.second-button{
+    bottom: 8%;
+    cursor: pointer;
+}
+
 /* matches */
 main>section.match {
     cursor: pointer;
@@ -136,7 +160,7 @@ main>section.match>section.match-movie>.movie-info>h3 {
 }
 
 /*form*/
-main>form{
+form{
     width: 84vw;
     background-color: #FEFEFE;
     margin: 0 auto;
@@ -145,7 +169,7 @@ main>form{
     position: relative;
 }
 
-main>form>img{
+form>img{
     width: 3.8em;
     margin: 0 auto;
     display: block;
@@ -154,7 +178,7 @@ main>form>img{
 
 }
 
-main>form>h2{
+form>h2{
     font-family: 'Open Sans', Helvetica, sans-serif;
     font-weight: 400;
     font-size: 1em;
@@ -164,22 +188,22 @@ main>form>h2{
     margin: 0 0 1.5em;
 }
 
-main>form>fieldset{
+form>fieldset{
     border: 0;
     font-family: 'Open Sans', Helvetica, sans-serif;
     font-size: 0.8em;
     font-weight: 400;
-    padding: 0em 1.5em 7em;
+    padding: 0em 1.5em 10em;
     margin-bottom: 2em;
 }
 
-main>form>fieldset>label{
+form>fieldset>label{
     padding-left: 0.7em;
     line-height: 3em;
     letter-spacing: 0.1em;
 }
 
-main>form>button {
+form>button {
     width: 40vw;
     height: 3em;
     border-radius: 100px;
@@ -191,7 +215,7 @@ main>form>button {
     color: #E43F3B;
     position: absolute;
     left: 50%;
-    bottom: 10%;
+    bottom: 20%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
     display: block;

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <% include ../partials/head %>
+
+    <body>
+        <section class="login-register-container">
+                <img class="login-logo" src="/images/logo_cinedate.png">
+                <form method="POST">
+                        <h2>Registreren</h2>
+                    <fieldset>
+                                <% if (errors){ %>
+                                    <ul>
+                                        <% errors.forEach(function(error) { %>
+                                            <li class="error-msg"> <%= error.msg %> </li>
+                                        <% }) %>
+                                    </ul>
+                                <% } %>
+                            <label for="email">E-mail</label>
+                            <input type="text" id="email_input_field" name="email" placeholder="name@mail.com">
+
+                            <label for="user-name">Wachtwoord</label>
+                            <input type="text" id="password_input_field" name="password" placeholder="wachtwoord..">
+                    </fieldset>
+                    <button id="submit_button" class="ready" type="submit">
+                        Registeren
+                    </button>
+                </form>
+        </section>
+        
+        
+        <script src="/js/index.js" async defer></script>
+    </body>
+</html>
