@@ -5,7 +5,7 @@
     <body>
         <section class="login-register-container">
                 <img class="login-logo" src="/images/logo_cinedate.png">
-                <form method="POST">
+                <form method="POST" action="/">
                         <h2>Registreren</h2>
                     <fieldset>
                                 <% if (errors){ %>
@@ -24,6 +24,7 @@
                     <button id="submit_button" class="ready" type="submit">
                         Registeren
                     </button>
+                    <a class="second-button" href="/login">Ga terug</a>
                 </form>
         </section>
         

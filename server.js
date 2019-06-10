@@ -59,12 +59,8 @@ mongoose.connect('mongodb://localhost/daterequest', function (err) {
 });
 
 //routes
-app.get('/', function(req, res) {
+app.post('/', function(req, res) {
   res.render('index')//route to index.ejs
-})
-
-app.get('/adddate', function(req, res) {
-  res.render('add')//route to adddate.ejs
 })
 
 app.get('/login', function(req, res) {
@@ -75,8 +71,20 @@ app.get('/registreren', function(req, res) {
   res.render('register')//route to register.ejs
 })
 
+app.get('/adddate', function(req, res) {
+  res.render('add')//route to adddate.ejs
+})
+
+app.get('/profiel', function(req, res) {
+  res.render('profile')//route to profile.ejs
+})
+
+app.get('/chats', function(req, res) {
+  res.render('chats')//route to chats.ejs
+})
+
 //form
-app.post('/', function(req, res){
+app.get('/', function(req, res){
 
   req.checkBody('nameMovie', 'Naam van film is verpicht!').notEmpty();
   

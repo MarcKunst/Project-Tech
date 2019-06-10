@@ -5,7 +5,7 @@
     <body>
         <section class="login-register-container">
                 <img class="login-logo" src="/images/logo_cinedate.png">
-                <form method="POST">
+                <form method="POST" action="/">
                         <h2>Inloggen</h2>
                     <fieldset>
                                 <% if (errors){ %>
@@ -21,12 +21,10 @@
                             <label for="user-name">Wachtwoord</label>
                             <input type="text" id="password_input_field" name="password" placeholder="wachtwoord..">
                     </fieldset>
-                    <button id="submit_button" class="ready" type="submit">
+                    <button id="submit_button" class="ready" type="submit" value="go to feed">
                         Inloggen
                     </button>
-                    <button id="submit_button" class="second-button" type="submit">
-                            Registreren
-                    </button>
+                    <a class="second-button" href="/registreren">Registreren</a>
                 </form>
         </section>
         
