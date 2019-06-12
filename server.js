@@ -3,18 +3,25 @@ const express = require('express')
 const camelCase = require('camelcase');
 const bodyParser = require('body-parser');
 const multer = require('multer');
+const slug = require('slug');
 const path = require('path');
 const expressValidator = require('express-validator');
 const mongo = require('mongodb');
-const mongoose = require('mongoose');
-const User = require('./models/user');
-const Date = require('./models/date');
+// const mongoose = require('mongoose');
 require('dotenv').config();
 
+var db = null
+var url = process.env.DB_HOST;
+
+mongo.MongoClient.connect(url, { useNewUrlParser: true }, function (err, client) {
+  if (err) throw err
+  db = client.db(process.env.DB_NAME)
+})
 
 
 const app = express()
-const port = 3000
+var port = process.env.PORT || 3000;
+
 
 //devine templating engine and path
 app.set('view engine', 'ejs');
@@ -22,6 +29,8 @@ app.set('views', path.join(__dirname, 'view/pages'));
 
 //static path
 app.use(express.static(path.join(__dirname, 'static')))
+
+
 
 //global variables
 app.use(function(req, res, next) {
@@ -31,7 +40,6 @@ app.use(function(req, res, next) {
 
 //bodyparser middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
 
 //express validator middleware
 app.use(expressValidator({
@@ -52,21 +60,15 @@ app.use(expressValidator({
 }));
 
 
-
-//Set up default mongoose connection
-var mongoDB = 'mongodb://localhost/daterequest';
-mongoose.connect(mongoDB, { useNewUrlParser: true });
-
-//Get the default connection
-var db = mongoose.connection;
-
-//Bind connection to error event (to get notification of connection errors)
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
-
-
+//require modules
+// const User = require('./models/user');
+// const Date = require('./models/date');
+const register = require('./functions/register');
+const registerForm = require('./functions/registerform');
 
 //routes
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.post('/', function(req, res) {
   res.render('index')//route to index.ejs
 })
@@ -75,9 +77,9 @@ app.get('/login', function(req, res) {
   res.render('login')//route to login.ejs
 })
 
-app.get('/registreren', function(req, res) {
-  res.render('register')//route to register.ejs
-})
+app.get('/registreren', register);
+app.post('/registreren', registerForm);
+
 
 app.get('/adddate', function(req, res) {
   res.render('add')//route to adddate.ejs
@@ -91,25 +93,25 @@ app.get('/chats', function(req, res) {
   res.render('chats')//route to chats.ejs
 })
 
-//form
-app.get('/', function(req, res){
+// //form
+// app.get('/', function(req, res){
 
-  req.checkBody('nameMovie', 'Naam van film is verpicht!').notEmpty();
+//   req.checkBody('nameMovie', 'Naam van film is verpicht!').notEmpty();
   
-  let errors = req.validationErrors();
+//   let errors = req.validationErrors();
 
-  if(errors) {
-    res.render('add', {
-      errors: errors
-    });
-    console.log('Error bij nieuwe date');
-  } else {
-    let newDate = {
-      movie_name: req.body.nameMovie
-    }
-    console.log('nieuwe date is gelukt');
-  }
-});
+//   if(errors) {
+//     res.render('add', {
+//       errors: errors
+//     });
+//     console.log('Error bij nieuwe date');
+//   } else {
+//     let newDate = {
+//       movie_name: req.body.nameMovie
+//     }
+//     console.log('nieuwe date is gelukt');
+//   }
+// });
 
 
 // 404

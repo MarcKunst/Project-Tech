@@ -31,7 +31,7 @@ userSchema = mongoose.Schema({
         },
     },
 
-    age: String,
+    age: Number,
 
     gender: String,
 
