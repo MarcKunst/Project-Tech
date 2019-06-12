@@ -49,7 +49,7 @@ main>h1{
     text-transform: uppercase;
 }
 
-/* login */
+/* login and register */
 section.login-register-container{
     margin: 5em 2em 0;
     position: relative;
@@ -76,7 +76,13 @@ section.login-register-container>form {
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-    bottom: 10%;
+    bottom: 3em;
+
+}
+
+fieldset#gender-fieldset {
+    border: 0;
+    display: flex;
 
 }
 
@@ -231,7 +237,7 @@ form>button {
     color: #E43F3B;
     position: absolute;
     left: 50%;
-    bottom: 20%;
+    bottom: 5.5em;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
     display: block;
@@ -278,7 +284,7 @@ input[type="radio"]:checked:after {
 }
 
 /*Text input styling*/
-input[type="text"] {
+input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="file"] {
     width: 84%;
     border: 2px #bdbdbd solid;
     border-radius: 4px;
@@ -293,7 +299,7 @@ input[type="text"] {
     transition: border 500ms;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="number"]:focus {
     border: 2px #f66 solid;
 }
 

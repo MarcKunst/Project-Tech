@@ -8,18 +8,33 @@
                 <form method="POST" action="/">
                         <h2>Registreren</h2>
                     <fieldset>
-                                <% if (errors){ %>
-                                    <ul>
-                                        <% errors.forEach(function(error) { %>
-                                            <li class="error-msg"> <%= error.msg %> </li>
-                                        <% }) %>
-                                    </ul>
-                                <% } %>
                             <label for="email">E-mail</label>
-                            <input type="text" id="email_input_field" name="email" placeholder="name@mail.com">
+                            <input type="email" id="email_input_field" name="email" placeholder="name@mail.com">
 
-                            <label for="user-name">Wachtwoord</label>
-                            <input type="text" id="password_input_field" name="password" placeholder="wachtwoord..">
+                            <label for="password">Wachtwoord</label>
+                            <input type="password" id="password_input_field" name="password" placeholder="wachtwoord..">
+
+                            <label for="first-name">Voornaam</label>
+                            <input type="text" id="first-name_input_field" name="first-name" placeholder="voornaam..">
+
+                            <label for="last-name">Achternaam (optioneel)</label>
+                            <input type="text" id="last-name_input_field" name="last-name" placeholder="achternaam..">
+
+                            <label for="age">Leeftijd (optioneel)</label>
+                            <input type="number" id="age_input_field" name="age" placeholder="leeftijd..">
+
+                            <fieldset id="gender-fieldset">
+                                    <legend>Geslacht (optioneel)</legend>
+                                    <label for="gender">Man</label>
+                                    <input type="radio" id="male_input_field" name="gender">
+                                    <label for="gender">Vrouw</label>
+                                    <input type="radio" id="female_input_field" name="gender">
+                            </fieldset>
+
+                            <label for="profile-picture">Profiel foto (optioneel)</label>
+                            <input type="file" id="profile-picture_input_field" name="profile-picture" placeholder="profielfoto" accept="image/png, image/jpeg">
+
+
                     </fieldset>
                     <button id="submit_button" class="ready" type="submit">
                         Registeren
