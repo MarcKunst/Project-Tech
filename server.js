@@ -7,7 +7,6 @@ const slug = require('slug');
 const path = require('path');
 const expressValidator = require('express-validator');
 const mongo = require('mongodb');
-// const mongoose = require('mongoose');
 require('dotenv').config();
 
 var db = null

@@ -16,7 +16,7 @@ const port = 3000
 // Function
 function registerForm(req, res, next) {
 
-      db.collection('users').insertOne({
+      db.collection('user').insertOne({
       email: req.body.email,
       password: req.body.password,
       firstName: req.body.first-name,
