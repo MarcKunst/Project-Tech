@@ -21,21 +21,16 @@ const app = express()
 const port = 3000
 
 // Function
-function registerForm(req, res, next) {
+function loginForm(req, res, next) {
     console.log('Hij werkt');
 
     console.log(req.body);
 
-    db.collection('user').insertOne({
+    db.collection('user').findOne({
       email: req.body.email,
       password: req.body.password,
-      firstName: req.body.firstname,
-      lastName: req.body.lastname,
-      age: req.body.age,
-      gender: req.body.gender,
-      profilepicture: req.file ? req.file.filename : null,
     }, done)
-    console.log(req.file);
+
 
     function done(err, data) {
       if (err) {
@@ -51,4 +46,4 @@ function registerForm(req, res, next) {
 
 }
 
-module.exports = registerForm;
+module.exports = loginForm;

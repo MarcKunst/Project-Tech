@@ -7,10 +7,11 @@ const slug = require('slug');
 const path = require('path');
 const expressValidator = require('express-validator');
 const mongo = require('mongodb');
+const session = require('express-session');
 require('dotenv').config();
 
-var db = null
-var url = process.env.DB_HOST;
+var db = null;
+var url = process.env.MONGODB_URI;
 
 mongo.MongoClient.connect(url, { useNewUrlParser: true }, function (err, client) {
   if (err) throw err
@@ -64,11 +65,29 @@ app.use(expressValidator({
 // const Date = require('./models/date');
 const register = require('./functions/register');
 const registerForm = require('./functions/registerform');
+const loginForm = require('./functions/loginform');
 
 //routes
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.post('/', function(req, res) {
+// sessions
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }
+}))
+
+const sessionChecker = function(req, res, next) {
+  if (!req.session.user) {
+    res.redirect('/login')
+  } else {
+    next()
+  }
+}
+
+app.get('/', sessionChecker, function(req, res) {
   res.render('index')//route to index.ejs
 })
 
@@ -76,19 +95,29 @@ app.get('/login', function(req, res) {
   res.render('login')//route to login.ejs
 })
 
+app.post('/login', loginForm);
+
+app.get('/logout', function(req, res) {
+  console.log(req.session);
+  if (req.session.user) {
+    req.session.destroy();
+  }
+  res.redirect('/')
+})
+
 app.get('/registreren', register);
 app.post('/registreren', registerForm);
 
 
-app.get('/adddate', function(req, res) {
+app.get('/adddate', sessionChecker, function(req, res) {
   res.render('add')//route to adddate.ejs
 })
 
-app.get('/profiel', function(req, res) {
+app.get('/profiel', sessionChecker, function(req, res) {
   res.render('profile')//route to profile.ejs
 })
 
-app.get('/chats', function(req, res) {
+app.get('/chats', sessionChecker, function(req, res) {
   res.render('chats')//route to chats.ejs
 })
 

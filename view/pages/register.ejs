@@ -5,7 +5,7 @@
     <body>
         <section class="login-register-container">
                 <img class="login-logo" src="/images/logo_cinedate.png">
-                <form method="POST" action="/">
+                <form method="POST" action="/registreren" enctype="multipart/form-data">
                         <h2>Registreren</h2>
                     <fieldset>
                             <label for="email">E-mail</label>
@@ -14,25 +14,25 @@
                             <label for="password">Wachtwoord</label>
                             <input type="password" id="password_input_field" name="password" placeholder="wachtwoord..">
 
-                            <label for="first-name">Voornaam</label>
-                            <input type="text" id="first-name_input_field" name="first-name" placeholder="voornaam..">
+                            <label for="firstname">Voornaam</label>
+                            <input type="text" id="first-name_input_field" name="firstname" placeholder="voornaam..">
 
-                            <label for="last-name">Achternaam (optioneel)</label>
-                            <input type="text" id="last-name_input_field" name="last-name" placeholder="achternaam..">
+                            <label for="lastname">Achternaam (optioneel)</label>
+                            <input type="text" id="last-name_input_field" name="lastname" placeholder="achternaam..">
 
-                            <!-- <label for="age">Leeftijd (optioneel)</label>
+                            <label for="age">Leeftijd (optioneel)</label>
                             <input type="number" id="age_input_field" name="age" placeholder="leeftijd..">
 
                             <fieldset id="gender-fieldset">
                                     <legend>Geslacht (optioneel)</legend>
                                     <label for="gender">Man</label>
-                                    <input type="radio" id="male_input_field" name="gender">
+                                    <input type="radio" id="male_input_field" name="gender" value="man">
                                     <label for="gender">Vrouw</label>
-                                    <input type="radio" id="female_input_field" name="gender">
+                                    <input type="radio" id="female_input_field" name="gender" value="vrouwtje">
                             </fieldset>
 
                             <label for="profile-picture">Profiel foto (optioneel)</label>
-                            <input type="file" id="profile-picture_input_field" name="profile-picture" placeholder="profielfoto" accept="image/png, image/jpeg"> -->
+                            <input type="file" id="profile-picture_input_field" name="profile_picture" placeholder="profielfoto" accept="image/png, image/jpeg">
 
 
                     </fieldset>
