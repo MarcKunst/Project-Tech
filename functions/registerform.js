@@ -1,5 +1,5 @@
 // Require dependencies
-const express = require('express')
+const express = require('express');
 const camelCase = require('camelcase');
 const bodyParser = require('body-parser');
 const multer = require('multer');
@@ -9,16 +9,16 @@ const expressValidator = require('express-validator');
 const mongo = require('mongodb');
 require('dotenv').config();
 
-var db = null
+var db = null;
 var url = process.env.MONGODB_URI;
 
 mongo.MongoClient.connect(url, { useNewUrlParser: true }, function (err, client) {
-  if (err) throw err
-  db = client.db(process.env.DB_NAME)
+  if (err) throw err;
+  db = client.db(process.env.DB_NAME);
 })
 
-const app = express()
-const port = 3000
+const app = express();
+const port = 3000;
 
 // Function
 function registerForm(req, res, next) {
@@ -34,7 +34,7 @@ function registerForm(req, res, next) {
       age: req.body.age,
       gender: req.body.gender,
       profilepicture: req.file ? req.file.filename : null,
-    }, done)
+    }, done);
     console.log(req.file);
 
     function done(err, data) {
@@ -45,7 +45,7 @@ function registerForm(req, res, next) {
         req.session.user = data;
 
         //Redirects the browser to the given path
-        res.redirect('/')
+        res.redirect('/');
       }
     }
 

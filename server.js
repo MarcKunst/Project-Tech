@@ -1,5 +1,5 @@
 // Require dependencies
-const express = require('express')
+const express = require('express');
 const camelCase = require('camelcase');
 const bodyParser = require('body-parser');
 const multer = require('multer');
@@ -9,17 +9,17 @@ const expressValidator = require('express-validator');
 const mongo = require('mongodb');
 const session = require('express-session');
 require('dotenv').config();
-
+var upload = multer({ dest: 'static/upload/' });
 var db = null;
 var url = process.env.MONGODB_URI;
 
 mongo.MongoClient.connect(url, { useNewUrlParser: true }, function (err, client) {
-  if (err) throw err
-  db = client.db(process.env.DB_NAME)
-})
+  if (err) throw err;
+  db = client.db(process.env.DB_NAME);
+});
 
 
-const app = express()
+const app = express();
 var port = process.env.PORT || 3000;
 
 
@@ -81,18 +81,18 @@ app.use(session({
 
 const sessionChecker = function(req, res, next) {
   if (!req.session.user) {
-    res.redirect('/login')
+    res.redirect('/login');
   } else {
-    next()
+    next();
   }
 }
 
 app.get('/', sessionChecker, function(req, res) {
-  res.render('index')//route to index.ejs
+  res.render('index');//route to index.ejs
 })
 
 app.get('/login', function(req, res) {
-  res.render('login')//route to login.ejs
+  res.render('login');//route to login.ejs
 })
 
 app.post('/login', loginForm);
@@ -102,11 +102,11 @@ app.get('/logout', function(req, res) {
   if (req.session.user) {
     req.session.destroy();
   }
-  res.redirect('/')
+  res.redirect('/');
 })
 
 app.get('/registreren', register);
-app.post('/registreren', registerForm);
+app.post('/registreren', upload.single('profilepicture'), registerForm);
 
 app.get('/adddate', sessionChecker, addmovie);
 app.post('/adddate', movieForm);
@@ -117,11 +117,11 @@ app.post('/adddate', movieForm);
 // })
 
 app.get('/profiel', sessionChecker, function(req, res) {
-  res.render('profile')//route to profile.ejs
+  res.render('profile');//route to profile.ejs
 })
 
 app.get('/chats', sessionChecker, function(req, res) {
-  res.render('chats')//route to chats.ejs
+  res.render('chats');//route to chats.ejs
 })
 
 // //form
@@ -147,9 +147,9 @@ app.get('/chats', sessionChecker, function(req, res) {
 
 // 404
 app.use(function (req, res, next) {
-    res.render('404')
-})
+    res.render('404');
+});
 
 app.listen(port, function(){
   console.log(`Poort ${port} is aan het runnen yo!`);
-})
+});

@@ -380,7 +380,6 @@ form>ul {
 .accordion .content {
     padding:0 10px;
     overflow:hidden;
-    border:1px solid #fff; /* Make the border match the background so it fades in nicely */
     -webkit-transition: all .5s ease-out;
     -moz-transition: all .5s ease-out;
 }
@@ -397,8 +396,8 @@ form>ul {
 
 /* Vertical */
 .vertical ul li {
-    overflow:hidden;
-    margin:0 0 1px;
+    overflow: hidden;
+    margin: 0 0 1px;
 }
 .vertical ul li label {
     padding:10px;
@@ -412,6 +411,6 @@ form>ul {
     border-top:0;
 }
 .vertical [type=radio]:checked ~ label ~ .content, .vertical [type=checkbox]:checked ~ label ~ .content {
-    height: 15em;
+    height: 11em;
     margin-bottom: 5em;
 }
