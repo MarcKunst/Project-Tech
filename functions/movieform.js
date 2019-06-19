@@ -22,12 +22,12 @@ const port = 3000;
 
 // Function
 function movieForm(req, res, next) {
-    var id = req.params.id;
+    var id = req.session.user._id;
     db.collection('user').update({
         _id: new mongo.ObjectID(id)
     }, {
     $set: {
-      movie: req.body.nameMovie,
+      movie: req.body.namemovie,
        },
     }, done);
 
