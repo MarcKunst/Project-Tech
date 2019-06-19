@@ -8,7 +8,7 @@ const path = require('path');
 const expressValidator = require('express-validator');
 const mongo = require('mongodb');
 require('dotenv').config();
-
+var upload = multer({ dest: 'static/upload/' });
 var db = null;
 var url = process.env.MONGODB_URI;
 
