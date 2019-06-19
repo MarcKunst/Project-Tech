@@ -15,26 +15,25 @@ var url = process.env.MONGODB_URI;
 mongo.MongoClient.connect(url, { useNewUrlParser: true }, function (err, client) {
   if (err) throw err;
   db = client.db(process.env.DB_NAME);
-});
+})
 
 const app = express();
 const port = 3000;
 
 // Function
-function loginForm(req, res, next) {
-    console.log('Hij werkt');
-
-    console.log(req.body);
-
-    db.collection('user').findOne({
-      email: req.body.email,
-      password: req.body.password,
+function movieForm(req, res, next) {
+    var id = req.params.id;
+    db.collection('user').update({
+        _id: new mongo.ObjectID(id)
+    }, {
+    $set: {
+      movie: req.body.nameMovie,
+       },
     }, done);
-
 
     function done(err, data) {
       if (err) {
-        next(err);
+        next(err)
       } else {
         // set registered user session
         req.session.user = data;
@@ -46,4 +45,4 @@ function loginForm(req, res, next) {
 
 }
 
-module.exports = loginForm;
+module.exports = movieForm;
