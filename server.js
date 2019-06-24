@@ -66,6 +66,7 @@ const addmovie = require('./functions/addmovie');
 const registerForm = require('./functions/registerform');
 const loginForm = require('./functions/loginform');
 const movieForm = require('./functions/movieform');
+const profile = require('./functions/profile');
 
 //routes
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -111,14 +112,14 @@ app.post('/registreren', upload.single('profilepicture'), registerForm);
 app.get('/adddate', sessionChecker, addmovie);
 app.post('/adddate', movieForm);
 
-
+app.get('/profiel', sessionChecker, profile);
 // app.get('/adddate', sessionChecker, function(req, res) {
 //   res.render('add')//route to adddate.ejs
 // })
 
-app.get('/profiel', sessionChecker, function(req, res) {
-  res.render('profile');//route to profile.ejs
-})
+// app.get('/profiel', sessionChecker, function(req, res) {
+//   res.render('profile');//route to profile.ejs
+// })
 
 app.get('/chats', sessionChecker, function(req, res) {
   res.render('chats');//route to chats.ejs

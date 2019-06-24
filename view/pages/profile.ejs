@@ -7,7 +7,8 @@
         <% if (user) { %>
         <section id="profile-container">
             <img src="/upload/<%= user.profilepicture %>" alt="gebruiker">
-            <h1><%= user.firstName %></h1>
+            <h1><%= user.firstName + " " + user.lastName %></h1>
+            <h2><%= user.age + " jaar" %></h2>
         </section>
         <% } %>
 

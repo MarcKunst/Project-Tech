@@ -321,6 +321,36 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
     color: #bdbdbd;
   }
 
+/* profile page */
+section#profile-container {
+    max-height: 100vh;
+}
+
+section#profile-container>img {
+    width: 8em;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 2em auto 1em;
+    box-shadow: 0px 2px 10px rgba(161, 161, 161, 0.37);
+}
+
+section#profile-container>h1 {
+    font-size: 1em;
+    text-align: center;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-weight: 400;
+    margin: 0 0 0.5em 0;
+}
+
+section#profile-container>h2 {
+    font-size: 0.8em;
+    text-align: center;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-weight: 400;
+    margin: 0;
+}
+
 /*error*/
 form>ul {
     padding-left: 1.8em;
