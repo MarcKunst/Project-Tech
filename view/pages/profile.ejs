@@ -4,13 +4,12 @@
 
     <body>
         <% include ../partials/header.ejs %>
-        <main>
-            <h1>Profiel</h1>
-
-            <section>
-                
-            </section>
-        </main>
+        <% if (user) { %>
+        <section id="profile-container">
+            <img src="/upload/<%= user.profilepicture %>" alt="gebruiker">
+            <h1><%= user.firstName %></h1>
+        </section>
+        <% } %>
 
         <script src="/js/index.js" async defer></script>
     </body>
