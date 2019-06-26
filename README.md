@@ -47,5 +47,10 @@ To use mongoDB we need to create a `.env` file to store important information fo
 This project uses `EJS` for writing the dynamic pages and partials. For more information on writing EJS follow this link: (https://ejs.co/#install).
 
 ## Packages
-
+Here I will put the links to the documentation for all packages that I have used in this application: <br>
+[path](https://www.npmjs.com/package/path) <br>
+[body-parser](https://www.npmjs.com/package/body-parser) <br>
+[multer](https://www.npmjs.com/package/multer) <br>
+[express-validator](https://www.npmjs.com/package/express-validator) <br>
+[express-session](https://www.npmjs.com/package/express-session)
 
