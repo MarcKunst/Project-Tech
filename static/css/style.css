@@ -87,6 +87,10 @@ fieldset#gender-fieldset {
 }
 
 /* matches */
+main#feed{
+    margin-bottom: 10em;
+}
+
 main>section.match {
     cursor: pointer;
 }
@@ -104,6 +108,7 @@ main>section.match>section.match-user{
 
 main>section.match>section.match-user>img{
     border-radius: 3em;
+    height: 5em;
     width: 5em;
     margin: 1em;
 }
@@ -351,6 +356,33 @@ section#profile-container>h2 {
     margin: 0;
 }
 
+section#profile-movie {
+    width: 70vw;
+    background: rgb(229,57,53);
+    background: -moz-linear-gradient(65deg, rgba(229,57,53,1) 0%, rgba(227,93,91,1) 100%);
+    background: -webkit-linear-gradient(65deg, rgba(229,57,53,1) 0%, rgba(227,93,91,1) 100%);
+    background: linear-gradient(65deg, rgba(229,57,53,1) 0%, rgba(227,93,91,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e53935",endColorstr="#e35d5b",GradientType=1);
+    color: #FEFEFE;
+    border-radius: 6px;
+    margin: 2em auto 0;
+    padding: 0.8em;
+}
+
+section#profile-movie>p {
+    margin: 0 0 0.5em 0;
+    font-size: 0.8em;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-weight: 400;
+}
+
+section#profile-movie>h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-weight: 400;
+}
+
 /*error*/
 form>ul {
     padding-left: 1.8em;
@@ -443,4 +475,17 @@ form>ul {
 .vertical [type=radio]:checked ~ label ~ .content, .vertical [type=checkbox]:checked ~ label ~ .content {
     height: 11em;
     margin-bottom: 5em;
+}
+
+a.link-to-delete {
+    display: block;
+    margin: 2em auto;
+    color: #E43F3B;
+    font-size: 0.8em;
+    text-decoration: none;
+    text-align: center;
+}
+
+section#profile-footer {
+    margin-top: 5em;
 }

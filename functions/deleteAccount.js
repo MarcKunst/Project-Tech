@@ -8,7 +8,7 @@ const path = require('path');
 const expressValidator = require('express-validator');
 const mongo = require('mongodb');
 require('dotenv').config();
-
+var upload = multer({ dest: 'static/upload/' });
 var db = null;
 var url = process.env.MONGODB_URI;
 
@@ -21,28 +21,19 @@ const app = express();
 const port = 3000;
 
 // Function
-function movieForm(req, res, next) {
-    var id = req.session.user._id;
-    db.collection('user').updateOne({
-        _id: new mongo.ObjectID(id)
-    }, {
-    $set: {
-      movie: req.body.namemovie,
-       },
-    }, done);
-
-    function done(err, data) {
-      if (err) {
-        next(err)
-      } else {
-        // set registered user session
-        req.session.user = data;
-
-        //Redirects the browser to the given path
-        res.redirect('/');
-      }
+function deleteAccount(req, res) {
+  if (!req.session.user){
+    return res.redirect('/')
+}else{
+    db.collection('user').find().toArray(done);
+  }
+  function done(err, data) {
+    if (err) {
+      next(err)
+    } else {
+      res.render('deleteAccount', { data: data, user: req.session.user, title: "Delete account" })
     }
-
+  }
 }
 
-module.exports = movieForm;
+module.exports = deleteAccount;

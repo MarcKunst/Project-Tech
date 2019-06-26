@@ -24,7 +24,7 @@ const port = 3000;
 function registerForm(req, res, next) {
     console.log('Hij werkt');
 
-    console.log(req.body);
+    
 
     db.collection('user').insertOne({
       email: req.body.email,

@@ -67,6 +67,8 @@ const registerForm = require('./functions/registerform');
 const loginForm = require('./functions/loginform');
 const movieForm = require('./functions/movieform');
 const profile = require('./functions/profile');
+const feed = require('./functions/feed');
+const deleteAccount = require('./functions/deleteAccount');
 
 //routes
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -86,11 +88,9 @@ const sessionChecker = function(req, res, next) {
   } else {
     next();
   }
-}
+};
 
-app.get('/', sessionChecker, function(req, res) {
-  res.render('index');//route to index.ejs
-})
+app.get('/', sessionChecker, feed);
 
 app.get('/login', function(req, res) {
   res.render('login');//route to login.ejs
@@ -113,13 +113,9 @@ app.get('/adddate', sessionChecker, addmovie);
 app.post('/adddate', movieForm);
 
 app.get('/profiel', sessionChecker, profile);
-// app.get('/adddate', sessionChecker, function(req, res) {
-//   res.render('add')//route to adddate.ejs
-// })
 
-// app.get('/profiel', sessionChecker, function(req, res) {
-//   res.render('profile');//route to profile.ejs
-// })
+app.get('/deleteAccount', sessionChecker, deleteAccount);
+
 
 app.get('/chats', sessionChecker, function(req, res) {
   res.render('chats');//route to chats.ejs

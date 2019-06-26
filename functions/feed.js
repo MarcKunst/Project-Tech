@@ -15,28 +15,27 @@ const app = express();
 const port = 3000;
 
 // Function
-function profile(req, res) {
-
-    if(req.session.user) {
-        var id = req.session.user.id;
-        db.collection('user').findOne({
-          _id: mongo.ObjectID(id)
-        }, done);
+function feed(req, res) {
+    if (!req.session.user) {
+  
+      return res.redirect('/');
+  
     } else {
-        res.redirect('/');
+      db.collection('user').find().toArray(done);
     }
-
-  function done(err, data) {
-    if (err) {
-      next(err);
-    } else {
-      if(req.session.user) {
-        res.render('profile', { data: data, user: req.session.user, title: "Profile" })
+  
+    function done(err, data) {
+      if (err) {
+        next(err);
       } else {
-        res.render('/');
+        console.log(data)
+        res.render('index', {
+          data: data,
+          user: req.session.user,
+          title: "Cinedate feed"
+        });
       }
     }
   }
-}
-
-module.exports = profile;
+  
+  module.exports = feed;
