@@ -54,3 +54,5 @@ Here I will put the links to the documentation for all packages that I have used
 [express-validator](https://www.npmjs.com/package/express-validator) <br>
 [express-session](https://www.npmjs.com/package/express-session)
 
+## License
+[MIT](https://github.com/MarcKunst/Project-Tech/blob/master/LICENSE)
