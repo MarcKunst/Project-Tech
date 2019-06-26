@@ -1,30 +1,51 @@
-# Project-Tech
+# Cinedate
+![readme_intro](https://user-images.githubusercontent.com/45428822/60176814-aca9f500-9817-11e9-822b-1dd5c4ca55f8.png)
+
+## Feature
+the user can create his own profile. It is then possible for the user to post his own date request. The user indicates which film he / she wants to see and then places the date.
+
+## Research
+I have done a lot of research to realize this project. Read more about this in my [wiki](https://github.com/MarcKunst/Project-Tech/wiki)
+
+## Database Structure
+![db_structure](https://user-images.githubusercontent.com/45428822/60177207-93557880-9818-11e9-8153-27bda83302e3.png)
+<br>
+When a user creates an account, this information is stored in the mongoDB database called "user". When creating an account, a `_id` is given to the user. When the user chooses to post a date, new information is added to this user in the database.
 
 ## Installation
+1. Open your terminal.
 
-### Clone repository
-Start by cloning this repo. Run `git clone https://github.com/MarcKunst/Project-Tech.git` in the terminal
+2. change your directory to the folder where you would like to install this project.
 
-### Install dependencies
+3. assuming that git is intalled on you computer type: <br>
+`https://github.com/MarcKunst/Project-Tech.git` in the terminal.
 
-Run `npm install` in the terminal to install all the dependencies
+4. To install all the dependencies type: <br>
+`npm install` in the terminal.
 
-### Install Express
+5. To het the application up and running type: <br>
+`npm run start` in the terminal.
 
-This project uses the Express framework for Node.js. To install Express, run `npm install express --save` in the terminal within your proejct directory.
+## Usage
+Now that everything is installed, you can run this application locally on your computer. To make things a bit easier you can use nodemon to restart the server everytime you make a change to the code. To use this, simply type: <br>
+`nodemon ./server.js localhost 3000` in the terminal.
 
-### EJS templating
+If you want to publish your own project based on this one on github, make sure you create a `.gitignore` file. This file makes sure that you don't upload any file that you don't need or want to upload. I recommend to (at least) place the following files in your .gitignore:
 
-This project uses EJS for writing the dynamic pages and partials. To install EJS, run `npm install ejs` in the terminal. For more information on writing EJS follow this link: (https://ejs.co/#install).
+`node_modules/` <br>
+`.DS_Store` <br>
+`.env`
+
+To use mongoDB we need to create a `.env` file to store important information for our database. Make sure you include:
+
+`DB_NAME=your_db_name` <br>
+`DB_PORT=your_db_port` <br>
+`DB_HOST=your_db_host` <br>
+`PORT=your_port_number` <br>
+`MONGODB_URI='mongodb://'+process.env.DB_HOST+':'+process.env.DB_PORT+'/'+process.env.DB_NAME`
+
+This project uses `EJS` for writing the dynamic pages and partials. For more information on writing EJS follow this link: (https://ejs.co/#install).
 
 ## Packages
 
-### Usage camelcase
 
-At the top of your js file write `const camelCase = require('camelcase')`. After that you can use camelCase in your js document.
-With camelCase you can convert any string to camelCase.
-
-### Usage nodemon
-
-Run `npm run dev` in de terminal.
-Now every time you save your document. Nodemon will automatically update the console.log for you in the terminal.
