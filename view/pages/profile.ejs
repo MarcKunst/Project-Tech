@@ -4,7 +4,7 @@
 
     <body>
         <% include ../partials/header.ejs %>
-        <% if (user) { %>
+        
         <section id="profile-container">
             <img src="/upload/<%= user.profilepicture %>" alt="gebruiker">
             <h1><%= user.firstName + " " + user.lastName %></h1>
@@ -16,7 +16,7 @@
                     <h3><%= user.movie %></h3>
             </section>
         <% } %>
-        <% } %>
+        
         <section id="profile-footer">
         <a href="/logout" class="link-to-delete">Uitloggen</a>
         <a href="/deleteAccount" class="link-to-delete">Account verwijderen</a>

@@ -41,8 +41,6 @@ function remove(req, res) {
       var sessionID = req.session.user;
       var accountID = sessionID._id;
       var ObjectID = require('mongodb').ObjectID;
-      
-      console.log(sessionID);
 
       db.collection('user').removeOne(
         { _id: ObjectID(accountID) }

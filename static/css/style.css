@@ -397,6 +397,19 @@ form>ul {
     letter-spacing: 0.1em;
 }
 
+#delete-error {
+    background: rgb(229,57,53);
+    background: -moz-linear-gradient(65deg, rgba(229,57,53,1) 0%, rgba(227,93,91,1) 100%);
+    background: -webkit-linear-gradient(65deg, rgba(229,57,53,1) 0%, rgba(227,93,91,1) 100%);
+    background: linear-gradient(65deg, rgba(229,57,53,1) 0%, rgba(227,93,91,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e53935",endColorstr="#e35d5b",GradientType=1);
+    color: #FEFEFE;
+    border-radius: 6px;
+    list-style: none;
+    padding: 0.8rem;
+    margin: 2em 0
+}
+
 /*progressive enhancement*/
 
 .accordion {
@@ -492,8 +505,9 @@ section#profile-footer {
 
 /*delete*/
 fieldset#delete-form {
-    margin-top: 2em;
+    margin-top: 3em;
     padding-top: 2em;
+    padding-bottom: 5em;
 }
 
 fieldset#delete-form>legend {
@@ -508,6 +522,7 @@ fieldset#delete-form>legend {
 fieldset#delete-form>p {
     text-align: justify;
 }
+
 
 fieldset#delete-form>input[type="submit"] {
     background: rgb(229,57,53);
@@ -527,4 +542,5 @@ fieldset#delete-form>input[type="submit"] {
     width: 50vw;
     text-align: center;
     border: none;
+    font-size: 1.1em;
 }

@@ -123,26 +123,6 @@ app.get('/chats', sessionChecker, function(req, res) {
   res.render('chats');//route to chats.ejs
 })
 
-// //form
-// app.get('/', function(req, res){
-
-//   req.checkBody('nameMovie', 'Naam van film is verpicht!').notEmpty();
-  
-//   let errors = req.validationErrors();
-
-//   if(errors) {
-//     res.render('add', {
-//       errors: errors
-//     });
-//     console.log('Error bij nieuwe date');
-//   } else {
-//     let newDate = {
-//       movie_name: req.body.nameMovie
-//     }
-//     console.log('nieuwe date is gelukt');
-//   }
-// });
-
 
 // 404
 app.use(function (req, res, next) {
