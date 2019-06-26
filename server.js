@@ -69,6 +69,7 @@ const movieForm = require('./functions/movieform');
 const profile = require('./functions/profile');
 const feed = require('./functions/feed');
 const deleteAccount = require('./functions/deleteAccount');
+const remove = require('./functions/remove');
 
 //routes
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -115,6 +116,7 @@ app.post('/adddate', movieForm);
 app.get('/profiel', sessionChecker, profile);
 
 app.get('/deleteAccount', sessionChecker, deleteAccount);
+app.post('/deleteAccount', remove);
 
 
 app.get('/chats', sessionChecker, function(req, res) {

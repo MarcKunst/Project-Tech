@@ -489,3 +489,42 @@ a.link-to-delete {
 section#profile-footer {
     margin-top: 5em;
 }
+
+/*delete*/
+fieldset#delete-form {
+    margin-top: 2em;
+    padding-top: 2em;
+}
+
+fieldset#delete-form>legend {
+    text-align: center;
+    padding: 0%;
+    display: block;
+    margin: 2em auto 0;
+    color: #E43F3B;
+    font-size: 1.2rem;
+}
+
+fieldset#delete-form>p {
+    text-align: justify;
+}
+
+fieldset#delete-form>input[type="submit"] {
+    background: rgb(229,57,53);
+    background: -moz-linear-gradient(65deg, rgba(229,57,53,1) 0%, rgba(227,93,91,1) 100%);
+    background: -webkit-linear-gradient(65deg, rgba(229,57,53,1) 0%, rgba(227,93,91,1) 100%);
+    background: linear-gradient(65deg, rgba(229,57,53,1) 0%, rgba(227,93,91,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e53935",endColorstr="#e35d5b",GradientType=1);
+    padding: 1em;
+    border-radius: 2em;
+    font-weight: 300;
+    font-size: 0.8rem;
+    color: #FEFEFE;
+    text-decoration: none;
+    margin: 3em auto 0;
+    display: block;
+    position: relative;
+    width: 50vw;
+    text-align: center;
+    border: none;
+}

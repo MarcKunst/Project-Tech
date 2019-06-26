@@ -28,7 +28,6 @@ function feed(req, res) {
       if (err) {
         next(err);
       } else {
-        console.log(data)
         res.render('index', {
           data: data,
           user: req.session.user,

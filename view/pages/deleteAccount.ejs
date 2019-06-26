@@ -5,6 +5,28 @@
     <body>
         <% include ../partials/header.ejs %>
 
-        
+        <form method="post">
+            <fieldset id="delete-form">
+              <legend id="delete-form-header">Account verwijderen</legend>
+              <p><b>pas op <%= user.firstName %>!</b> Wanneer je jouw account verwijderd kan je het account niet meer terughalen.
+                 Ben je zeker dat je het account wil verwijderen?
+              </p>
+              <% if (errors){ %>
+                <ul id="errorcontainer">
+                  <% errors.forEach(function(error) { %>
+                    <li>
+                      <%= error.msg %>
+                    </li>
+                  <% }) %>
+                </ul>
+              <% } %>
+              <input type="checkbox" id="confirm" name="confirm" value="confirm">
+              <label for="confirm" class="confirm-label">Ja, verwijder account</label>
+
+
+
+              <input id="button" type="submit" name="submit" value="Account verwijderen" />
+            </fieldset>
+          </form>
     </body>
 </html>
