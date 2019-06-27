@@ -30,9 +30,8 @@ function profile(req, res) {
     if (err) {
       next(err);
     } else {
-      console.log("req.session.user")
-      console.log(req.session.user)
       res.render('profile', { user: data, title: "Profile" })
+      
     }
   }
 }

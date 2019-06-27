@@ -9,11 +9,15 @@ const expressValidator = require('express-validator');
 const mongo = require('mongodb');
 const session = require('express-session');
 require('dotenv').config();
-var upload = multer({ dest: 'static/upload/' });
+var upload = multer({
+  dest: 'static/upload/'
+});
 var db = null;
 var url = process.env.MONGODB_URI;
 
-mongo.MongoClient.connect(url, { useNewUrlParser: true }, function (err, client) {
+mongo.MongoClient.connect(url, {
+  useNewUrlParser: true
+}, function (err, client) {
   if (err) throw err;
   db = client.db(process.env.DB_NAME);
 });
@@ -33,7 +37,7 @@ app.use(express.static(path.join(__dirname, 'static')))
 
 
 //global variables
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.locals.errors = null;
   next();
 });
@@ -43,18 +47,18 @@ app.use(bodyParser.json());
 
 //express validator middleware
 app.use(expressValidator({
-  errorFormatter: function(param, msg, value) {
-    let namespace = param.split('.')
-    , root = namespace.shift()
-    , formParam = root;
+  errorFormatter: function (param, msg, value) {
+    let namespace = param.split('.'),
+      root = namespace.shift(),
+      formParam = root;
 
-    while(namespace.lenght) {
+    while (namespace.lenght) {
       formParam += '[' + namespace.shift() + ']';
     }
     return {
-      param : formParam,
-      msg : msg,
-      value : value
+      param: formParam,
+      msg: msg,
+      value: value
     };
   }
 }));
@@ -72,7 +76,9 @@ const deleteAccount = require('./functions/deleteAccount');
 const remove = require('./functions/remove');
 
 //routes
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 // sessions
 app.set('trust proxy', 1); // trust first proxy
@@ -80,10 +86,12 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false }
+  cookie: {
+    secure: false
+  }
 }))
 
-const sessionChecker = function(req, res, next) {
+const sessionChecker = function (req, res, next) {
   if (!req.session.user) {
     res.redirect('/login');
   } else {
@@ -93,13 +101,13 @@ const sessionChecker = function(req, res, next) {
 
 app.get('/', sessionChecker, feed);
 
-app.get('/login', function(req, res) {
-  res.render('login');//route to login.ejs
+app.get('/login', function (req, res) {
+  res.render('login'); //route to login.ejs
 })
 
 app.post('/login', loginForm);
 
-app.get('/logout', function(req, res) {
+app.get('/logout', function (req, res) {
   console.log(req.session);
   if (req.session.user) {
     req.session.destroy();
@@ -119,16 +127,16 @@ app.get('/deleteAccount', sessionChecker, deleteAccount);
 app.post('/deleteAccount', remove);
 
 
-app.get('/chats', sessionChecker, function(req, res) {
-  res.render('chats');//route to chats.ejs
+app.get('/chats', sessionChecker, function (req, res) {
+  res.render('chats'); //route to chats.ejs
 })
 
 
 // 404
 app.use(function (req, res, next) {
-    res.render('404');
+  res.render('404');
 });
 
-app.listen(port, function(){
+app.listen(port, function () {
   console.log(`Poort ${port} is aan het runnen yo!`);
 });

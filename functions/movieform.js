@@ -12,7 +12,9 @@ require('dotenv').config();
 var db = null;
 var url = process.env.MONGODB_URI;
 
-mongo.MongoClient.connect(url, { useNewUrlParser: true }, function (err, client) {
+mongo.MongoClient.connect(url, {
+  useNewUrlParser: true
+}, function (err, client) {
   if (err) throw err;
   db = client.db(process.env.DB_NAME);
 })
@@ -22,26 +24,27 @@ const port = 3000;
 
 // Function
 function movieForm(req, res, next) {
-    var id = req.session.user._id;
-    db.collection('user').updateOne({
-        _id: new mongo.ObjectID(id)
-    }, {
+  var id = req.session.user._id;
+  db.collection('user').updateOne({
+    _id: new mongo.ObjectID(id)
+  }, {
     $set: {
       movie: req.body.namemovie,
-       },
-    }, done);
+    },
+  }, done);
 
-    function done(err, data) {
-      if (err) {
-        next(err)
-      } else {
-        // set registered user session
-        req.session.user = data;
+  function done(err, data) {
+    if (err) {
+      next(err)
+    } else {
+      // set registered user session
+      req.session.user = data;
+      console.log(data);
 
-        //Redirects the browser to the given path
-        res.redirect('/');
-      }
+      //Redirects the browser to the given path
+      res.redirect('/');
     }
+  }
 
 }
 

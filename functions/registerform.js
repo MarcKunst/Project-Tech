@@ -35,15 +35,15 @@ function registerForm(req, res, next) {
       gender: req.body.gender,
       profilepicture: req.file ? req.file.filename : null,
     }, done);
-    console.log(req.file);
+
 
     function done(err, data) {
       if (err) {
         next(err)
       } else {
         // set registered user session
-        req.session.user = data;
-
+        req.session.user = data.ops[0];
+        console.log(data.ops[0])
         //Redirects the browser to the given path
         res.redirect('/');
       }

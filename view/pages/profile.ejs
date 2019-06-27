@@ -4,6 +4,7 @@
 
     <body>
         <% include ../partials/header.ejs %>
+        <% if (user) { %>
         <section id="profile-container">
             <img src="/upload/<%= user.profilepicture %>" alt="gebruiker">
             <h1><%= user.firstName + " " + user.lastName %></h1>
@@ -14,6 +15,7 @@
                     <p>Wil graag naar:</p>
                     <h3><%= user.movie %></h3>
             </section>
+        <% } %>
         <% } %>
         
         <section id="profile-footer">
