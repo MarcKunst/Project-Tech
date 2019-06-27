@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/MarcKunst/Project-Tech#readme",
   "devDependencies": {
-    "dotenv": "^8.0.0",
+    
     "nodemon": "^1.19.0"
   },
   "dependencies": {
